@@ -1,0 +1,46 @@
+Jenkins Server:
+
+1. Install Jenkins
+
+--> https://linuxize.com/post/how-to-install-jenkins-on-centos-7/
+
+2. Install ansible
+
+--> yum install ansible -y
+
+3. Install git
+
+--> yum install git -y
+
+4. Install Docker
+
+--> https://docs.docker.com/install/linux/docker-ce/centos/
+
+5. Install Docker Compose
+
+--> https://docs.docker.com/compose/install/
+
+6. Configure Docker Swarm
+
+--> https://medium.com/@Alibaba_Cloud/how-to-install-and-configure-docker-swarm-mode-on-centos-7-c0b32f0fbc82
+
+
+
+docker build -t project1/app1:1.0 ./app1/
+docker stack deploy --compose-file docker-compose.yml app2
+
+
+git clone https://github.com/gopac25/webapp2.git
+tar -zcvf /tmp/ansible/project1/app1/app1.tar.gz /tmp/ansible/project1/app1/webapp1/*
+
+
+git clone https://github.com/gopac25/webapp2.git
+pwd
+cd /tmp/ansible/project2/app2/webapp2;ls
+tar -zcvf /tmp/ansible/project2/app2/app2.tar.gz *
+
+
+Build Failure Analyzer
+
+
+for i in `docker ps -q`; do echo $i=`docker inspect --format='{{.State.StartedAt}}' $i | xargs date +%s -d`; done

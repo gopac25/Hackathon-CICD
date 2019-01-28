@@ -1,0 +1,8 @@
+docker swarm join --token SWMTKN-1-4bqp3pyq7s4m02ecv7bmrpgjnxzt1vouqabsjouahx5rtebeni-3bhfqtl5ecu858ewfem65tl45 192.168.225.128:2377
+
+
+
+
+192.168.225.128  managernode
+192.168.225.129  workernode1
+192.168.225.130  workernode2

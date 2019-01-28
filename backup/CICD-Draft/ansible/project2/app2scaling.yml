@@ -1,0 +1,7 @@
+- name: Scalling Application 2
+  gather_facts: false
+  hosts: second 
+
+  tasks:
+    - name: scale application 2 
+      command: docker service scale app2_app2=2 

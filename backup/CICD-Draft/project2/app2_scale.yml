@@ -1,0 +1,7 @@
+- name: Install docker
+  gather_facts: false
+  hosts: test1
+
+  tasks:
+    - name: create app2 using compose
+      command: docker-compose scale app1=3 

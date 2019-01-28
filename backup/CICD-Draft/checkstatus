@@ -1,0 +1,9 @@
+#!/bin/bash
+c1=`docker ps|grep -i project2|head -1|cut -d' ' -f1`
+c2=`docker ps|grep -i project2|tail -1|cut -d' ' -f1`
+for i in `docker ps -q`; do echo $i=`docker inspect --format='{{.State.StartedAt}}' $i | xargs date +%s -d`; done
+if [ "$c1" != "$c2" ];
+then
+docker stop $c1 $c2
+docker start $c1 $c2
+fi

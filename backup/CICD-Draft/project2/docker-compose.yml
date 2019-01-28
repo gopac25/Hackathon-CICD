@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+  app2:
+    build: './app2/'
+    networks:
+      - end
+    volumes:
+      - ./app2/:/var/www/html/
+    ports:
+      - "8080:80"
+networks:
+  end:

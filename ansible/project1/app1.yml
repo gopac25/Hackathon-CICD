@@ -1,0 +1,16 @@
+- name: Install docker
+  gather_facts: false
+  hosts: first 
+
+  tasks:
+    - name: upload the site directory to the docker host
+      copy: src=/tmp/ansible/project1 dest=/tmp
+    - name: Application binaries creation
+      shell: |
+        git clone https://github.com/gopac25/webapp1.git /tmp/project1/webapp1
+        cd /tmp/project1/webapp1
+        tar -zcvf /tmp/project1/app1.tar.gz *
+    - name: create app1 using compose
+      command: chmod -R 777 /tmp/project1
+    - name: create app1 using compose
+      command: docker-compose -f /tmp/project1/docker-compose.yml up -d

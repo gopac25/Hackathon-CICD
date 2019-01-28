@@ -1,0 +1,20 @@
+- name: Install docker
+  gather_facts: false
+  hosts: second 
+
+  tasks:
+    - name: upload the site directory to the docker host
+      copy: src=/tmp/ansible/project2 dest=/tmp
+    - name: Application binaries creation
+      shell: |
+        git clone https://github.com/gopac25/webapp2.git /tmp/project2/webapp2
+        cd /tmp/project2/webapp2
+        tar -zcvf /tmp/project2/app2.tar.gz *
+    - name: create app1 using compose
+      command: chmod -R 777 /tmp/project2
+    - name: Build docker image
+      command: docker build -t project2/app2:1.0 /tmp/project2/
+    - name: create docker swarm
+      shell: |
+        docker swarm init
+        docker stack deploy --compose-file=/tmp/project2/docker-compose.yml app2

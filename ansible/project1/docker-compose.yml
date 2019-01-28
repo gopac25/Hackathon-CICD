@@ -1,0 +1,23 @@
+version: "3.2"
+services:
+  app1:
+    build: '.'
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "8080:80"
+  mysql:
+    image: mysql:5.6.40
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+networks:
+  frontend:
+  backend:

@@ -1,0 +1,11 @@
+- name: Install docker
+  gather_facts: false
+  hosts: test1
+
+  tasks:
+    - name: upload the site directory to the docker host
+      copy: src=/tmp/project2 dest=/tmp/
+    - name: create app1 using compose
+      command: chmod -R 777 /tmp/project2
+    - name: create app2 using compose
+      command: docker-compose -f /tmp/project2/docker-compose.yml up -d

@@ -1,0 +1,159 @@
+[root@localhost project2]# history
+    1  vi /etc/selinux/config
+    2  cat /etc/selinux/config
+    3  setenforce 0
+    4  systemctl stop firewalld
+    5  systemctl status firewalld
+    6  systemctl disable firewalld
+    7  sudo yum install java-1.8.0-openjdk-devel
+    8  curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
+    9  sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+   10  sudo yum install jenkins
+   11  sudo systemctl start jenkins
+   12  sudo systemctl enable jenkins
+   13  ifconfig
+   14  cat /var/lib/jenkins/secrets/initialAdminPassword
+   15  systemctl status jenkins
+   16  ifconfig
+   17  cd /tmp
+   18  ls
+   19  cd ansible/
+   20  ls -ltr
+   21  vi inven.txt
+   22  cat inven.txt
+   23  su - jenkins
+   24  ansible version
+   25  yum install ansible -y
+   26  yum install git -y
+   27  \
+   28  cd /var/log/jenkins
+   29  ls -ltr
+   30  cat jenkins.log
+   31  cd
+   32  cd /tmp
+   33  ls -ltr
+   34  cd ansible/
+   35  ls -ltr
+   36  mkdir project1
+   37  cd project1/
+   38  docker swarm init --advertise-addr 192.168.225.128
+   39  yum install -y yum-utils   device-mapper-persistent-data   lvm2
+   40  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+   41  yum install docker-ce
+   42  curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-co
+mpose
+   43  chmod +x /usr/local/bin/docker-compose
+   44  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+   45  docker-compose --version
+   46  docker swarm init --advertise-addr 192.168.225.128
+   47  systemctl start docker
+   48  systemctl enable docker
+   49  docker swarm init --advertise-addr 192.168.225.128
+   50  docker info
+   51  docker node ls
+   52  vi /etc/hosts
+   53  hostnamectl set-hostname managernode
+   54  docker node ls
+   55  docker swarm join-token manager -q
+   56  mkdir app1
+   57  cd app1
+   58  git clone https://github.com/gopac25/webapp1.git
+   59  ls -ltr
+   60  cd webapp1
+   61  ls -ltr
+   62  cd ..
+   63  ls -ltr
+   64  tar -zcvf /tmp/ansible/project1/app1/app1.tar.gz /tmp/ansible/project1/app1/webapp1/*
+   65  cd /tmp/ansible/project1/app1/
+   66  ls -ltr
+   67  vi Dockerfile
+   68  cd ..
+   69  ls -ltr
+   70  vi docker-compose.yml
+   71  vi app1.yml
+   72  cd ..
+   73  ls -ltr
+   74  vi inven.txt
+   75  su - jenkins
+   76  ls -ltr
+   77  cd project1
+   78  ls -ltr
+   79  vi docker-compose.yml
+   80  vi app1.yml
+   81  vi docker-compose.yml
+   82  docker service ls
+   83  docker ps
+   84  docker images
+   85  docker-compose ps
+   86  docker-compose down
+   87  docker ps -a
+   88  docker ps
+   89  docker images
+   90  docker rmi d3f10102ed89
+   91  docker stack deploy --compose-file docker-compose.yml app1
+   92  cat docker-compose.yml
+   93  docker build ./app1/
+   94  docker images
+   95  docker rmi 069835c834da
+   96  docker build -t project1/app1:1.0 ./app1/
+   97  docker images
+   98  vi docker-compose.yml
+   99  docker stack deploy --compose-file docker-compose.yml app1
+  100  docker stack services app1
+  101  ifconfig
+  102  docker ps
+  103  docker exec -it c9bb6ac91727 bash
+  104  curl app1_app1:8085
+  105  curl 192.168.225.128
+  106  curl 192.168.225.128:85
+  107  curl 192.168.225.128:8085
+  108  curl localhost:8085
+  109  docker stack rm app1
+  110  docker stack services app1
+  111  docker ps
+  112  docker image
+  113  docker images
+  114  docker ps -a
+  115  ls -ltr
+  116  vi docker-compose.yml
+  117  docker stack deploy --compose-file docker-compose.yml app1
+  118  docker stack services app1
+  119  docker ps
+  120  docker ps -a
+  121  docker stack services app1
+  122  cat app1/Dockerfile
+  123  curl 192.168.225.129:8085
+  124  curl 192.168.225.128:8085
+  125  curl 192.168.225.130:8085
+  126  curl 192.168.225.130:8080
+  127  curl 192.168.225.128:8080
+  128  docker images
+  129  docker rmi 17b812f8939f
+  130  docker stack rm app1
+  131  docker rmi 17b812f8939f
+  132  docker ps
+  133  docker ps -a
+  134  docker rmi 17b812f8939f
+  135  vi app1/Dockerfile
+  136  docker build -t project1/app1:1.0 ./app1/
+  137  docker stack deploy --compose-file docker-compose.yml app1
+  138  docker stack services app1
+  139  docker ps
+  140  docker stack services app1
+  141  docker ps
+  142  docker ps -a
+  143  docker stack services app1
+  144  curl 192.168.225.128:8085
+  145  curl 192.168.225.129:8085
+  146  curl 192.168.225.130:8085
+  147  curl 192.168.225.129:3306
+  148  curl http://192.168.225.130:8085
+  149  curl http://192.168.225.128:8085
+  150  curl http://localhost:8085
+  151  curl http://192.168.225.129:8085
+  152  curl http://managernode:8085
+  153  cd ..
+  154  mkdir project2
+  155  cd project2
+  156  history
+[root@localhost project2]#

@@ -1,0 +1,11 @@
+- name: Install docker
+  gather_facts: false
+  hosts: test
+
+  tasks:
+    - name: upload the site directory to the docker host
+      copy: src=/tmp/backup dest=/tmp/
+    - name: create app1 using compose
+      command: chmod -R 777 /tmp/backup
+    - name: create app1 using compose
+      command: sh /tmp/backup/backup.sh

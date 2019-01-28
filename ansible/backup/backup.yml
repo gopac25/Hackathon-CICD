@@ -1,0 +1,11 @@
+- name: Install docker
+  gather_facts: false
+  hosts: test
+
+  tasks:
+    - name: upload the scripts to hosts
+      copy: src=/tmp/ansible/backup dest=/tmp/
+    - name: change permission
+      command: chmod -R 777 /tmp/backup
+    - name: Run backup
+      command: sh /tmp/backup/backup.sh
